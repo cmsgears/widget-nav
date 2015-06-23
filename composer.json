@@ -3,7 +3,7 @@
 	"description": "The Nav widget for CMSGears.",
 	"homepage": "http://www.cmsgears.org",
 	"type": "package",
-	"keywords": [ "yii2", "cmsgears", "widget", "login", "ajax login" ],
+	"keywords": [ "yii2", "cmsgears", "widget", "nav" ],
 	"license": "GPLv3",
 	"support": {
         "source": "http://www.cmsgears.org/downloads/widgets/nav",
