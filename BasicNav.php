@@ -16,6 +16,7 @@ class BasicNav extends Widget {
     public $items   = [];
     public $options = [];
 
+	// TODO: Use route and params where required.
     public $route;
     public $params;
 
