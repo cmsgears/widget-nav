@@ -16,12 +16,15 @@ class BasicNav extends Widget {
     public $items   = [];
     public $options = [];
 
+	public $label	= true;
+	public $icon	= false;
+
 	// TODO: Use route and params where required.
     public $route;
     public $params;
 
 	// Constructor and Initialisation ------------------------------
-	
+
 	// yii\base\Object
 
     public function init() {
@@ -45,9 +48,9 @@ class BasicNav extends Widget {
 
     public function run() {
 
-        echo $this->renderItems();
+        return $this->renderItems();
     }
-	
+
 	// Nav
 
     public function renderItems() {
@@ -64,14 +67,31 @@ class BasicNav extends Widget {
 
     public function renderItem( $item ) {
 
-        if( !isset( $item['label'] ) ) {
-
-            throw new InvalidConfigException( "The 'label' option is required." );
-        }
-
-        $label      = $item['label'];
+        $label      = null;
         $url        = $item['url'];
         $options    = [];
+
+		// Check whether label is required
+		if( $this->label ) {
+
+	        if( !isset( $item['label'] ) ) {
+
+	            throw new InvalidConfigException( "The 'label' option is required." );
+	        }
+
+	        $label      = $item['label'];
+		}
+
+		// Check whether icon is required
+		if( $this->icon ) {
+
+	        if( !isset( $item['icon'] ) ) {
+
+	            throw new InvalidConfigException( "The 'icon' option is required." );
+	        }
+
+			$label	= Html::tag( 'i', null, $item['icon'] ) . $label;
+		}
 
 		if( isset( $item['options'] ) ) {
 
@@ -81,4 +101,5 @@ class BasicNav extends Widget {
         return Html::tag( 'li', Html::a( $label, $url, null ), $options );
     }
 }
+
 ?>
