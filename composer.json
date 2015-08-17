@@ -1,16 +1,12 @@
 {
 	"name": "cmsgears/widget-nav",
-	"description": "The Nav widget for CMSGears.",
+	"description": "The Nav Widget for CMSGears. It provide options to generate navigational menus.",
 	"homepage": "http://www.cmsgears.org",
 	"type": "package",
 	"keywords": [ "yii2", "cmsgears", "widget", "nav" ],
 	"license": "GPLv3",
 	"support": {
-        "source": "http://www.cmsgears.org/downloads/widgets/nav",
-		"forum": "http://forum.cmsgears.org/",
-		"resources": "http://resources.cmsgears.org/",
-		"issues": "https://www.amazingdesk.com/cmsgears/issues/",
-		"blog": "http://cmsgears.tutorials24x7.com/"
+		"resources": "http://www.cmsgears.org"
 	},
 	"autoload": {
 		"psr-4": {
