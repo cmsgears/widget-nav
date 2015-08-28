@@ -90,7 +90,7 @@ class BasicNav extends Widget {
 	            throw new InvalidConfigException( "The 'icon' option is required." );
 	        }
 
-			$label	= Html::tag( 'i', null, $item['icon'] ) . $label;
+			$label	= Html::tag( 'i', null, [ 'class' =>  $item['icon'] ] ) . $label;
 		}
 
 		if( isset( $item['options'] ) ) {
