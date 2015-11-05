@@ -68,7 +68,8 @@ class BasicNav extends Widget {
     public function renderItem( $item ) {
 
         $label      = null;
-        $url        = $item['url'];
+        $url        = $item[ 'url' ];
+		$urlOptions	= isset( $item[ 'urlOptions' ] ) ? $item[ 'urlOptions' ] : null;
         $options    = [];
 
 		// Check whether label is required
@@ -98,7 +99,7 @@ class BasicNav extends Widget {
 			$options = $item['options'];
 		}
 
-        return Html::tag( 'li', Html::a( $label, $url, null ), $options );
+        return Html::tag( 'li', Html::a( $label, $url, $urlOptions ), $options );
     }
 }
 
