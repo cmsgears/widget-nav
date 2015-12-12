@@ -75,28 +75,29 @@ class BasicNav extends Widget {
 		// Check whether label is required
 		if( $this->label ) {
 
-	        if( !isset( $item['label'] ) ) {
+	        if( !isset( $item[ 'label' ] ) ) {
 
 	            throw new InvalidConfigException( "The 'label' option is required." );
 	        }
 
-	        $label      = $item['label'];
+	        $label      = $item[ 'label' ];
 		}
 
 		// Check whether icon is required
 		if( $this->icon ) {
 
-	        if( !isset( $item['icon'] ) ) {
+	        if( !isset( $item[ 'icon' ] ) ) {
 
 	            throw new InvalidConfigException( "The 'icon' option is required." );
 	        }
-
-			$label	= Html::tag( 'i', null, [ 'class' =>  $item['icon'] ] ) . $label;
+			
+			$icon	= Html::tag( 'i', null, [ 'class' =>  $item[ 'icon' ] ] );
+			$label	= "<span class='wrap-icon'>$icon</span><span class='wrap-text'>$label</span>";
 		}
 
-		if( isset( $item['options'] ) ) {
+		if( isset( $item[ 'options' ] ) ) {
 
-			$options = $item['options'];
+			$options = $item[ 'options' ];
 		}
 
         return Html::tag( 'li', Html::a( $label, $url, $urlOptions ), $options );
