@@ -48,12 +48,12 @@ class BasicNav extends Widget {
 
     public function run() {
 
-        return $this->renderItems();
+        return $this->renderWidget();
     }
 
 	// Nav
 
-    public function renderItems() {
+    public function renderWidget( $config = [] ) {
 
         $items = [];
 
