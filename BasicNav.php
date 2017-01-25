@@ -7,11 +7,21 @@ use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
-class BasicNav extends Widget {
+class BasicNav extends \cmsgears\core\common\base\Widget {
 
 	// Variables ---------------------------------------------------
 
-	// Public Variables --------------------
+	// Globals -------------------------------
+
+	// Constants --------------
+
+	// Public -----------------
+
+	// Protected --------------
+
+	// Variables -----------------------------
+
+	// Public -----------------
 
     public $items   = [];
     public $options = [];
@@ -23,9 +33,13 @@ class BasicNav extends Widget {
     public $route;
     public $params;
 
-	// Constructor and Initialisation ------------------------------
+	// Protected --------------
 
-	// yii\base\Object
+	// Private ----------------
+
+	// Traits ------------------------------------------------------
+
+	// Constructor and Initialisation ------------------------------
 
     public function init() {
 
@@ -42,18 +56,24 @@ class BasicNav extends Widget {
         }
     }
 
-	// Instance Methods --------------------------------------------
+	// Instance methods --------------------------------------------
+
+	// Yii interfaces ------------------------
+
+	// Yii parent classes --------------------
 
 	// yii\base\Widget
 
     public function run() {
 
-        return $this->renderItems();
+        return $this->renderWidget();
     }
 
-	// Nav
+	// CMG interfaces ------------------------
 
-    public function renderItems() {
+	// CMG parent classes --------------------
+
+    public function renderWidget( $config = [] ) {
 
         $items = [];
 
@@ -64,6 +84,8 @@ class BasicNav extends Widget {
 
         return Html::tag( 'ul', implode( "\n", $items ), $this->options );
     }
+
+	// BasicNav ------------------------------
 
     public function renderItem( $item ) {
 
@@ -90,7 +112,7 @@ class BasicNav extends Widget {
 
 	            throw new InvalidConfigException( "The 'icon' option is required." );
 	        }
-			
+
 			$icon	= Html::tag( 'i', null, [ 'class' =>  $item[ 'icon' ] ] );
 			$label	= "<span class='wrap-icon'>$icon</span><span class='wrap-text'>$label</span>";
 		}
@@ -103,5 +125,3 @@ class BasicNav extends Widget {
         return Html::tag( 'li', Html::a( $label, $url, $urlOptions ), $options );
     }
 }
-
-?>
