@@ -122,6 +122,16 @@ class BasicNav extends \cmsgears\core\common\base\Widget {
 			$options = $item[ 'options' ];
 		}
 
-        return Html::tag( 'li', Html::a( $label, $url, $urlOptions ), $options );
+		$link	= Html::a( $label, $url, $urlOptions );
+
+		// Custom Links
+		if( isset( $options[ 'action' ] ) ) {
+
+			$urlOptions[ 'link' ] = $url;
+
+			$link = Html::tag( 'span', $label, $urlOptions );
+		}
+
+        return Html::tag( 'li', $link, $options );
     }
 }
