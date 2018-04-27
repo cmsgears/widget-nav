@@ -22,7 +22,7 @@ use cmsgears\core\common\base\Widget;
  *
  * @since 1.0.0
  */
-class Nav extends Widget {
+class BasicNav extends Widget {
 
 	// Variables ---------------------------------------------------
 
