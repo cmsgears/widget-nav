@@ -117,7 +117,7 @@ class BasicNav extends Widget {
 	            throw new InvalidConfigException( "The 'label' option is required." );
 	        }
 
-	        $label      = $item[ 'label' ];
+	        $label = $item[ 'label' ];
 		}
 
 		// Check whether icon is required
@@ -149,4 +149,5 @@ class BasicNav extends Widget {
 
         return Html::tag( 'li', $link, $options );
     }
+
 }
