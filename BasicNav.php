@@ -105,7 +105,7 @@ class BasicNav extends Widget {
     public function renderItem( $item ) {
 
         $label      = null;
-        $url        = $item[ 'url' ];
+        $url        = isset( $item[ 'url' ] ) ? $item[ 'url' ] : null;
 		$urlOptions	= isset( $item[ 'urlOptions' ] ) ? $item[ 'urlOptions' ] : null;
         $options    = [];
 
@@ -137,7 +137,10 @@ class BasicNav extends Widget {
 			$options = $item[ 'options' ];
 		}
 
-		$link	= Html::a( $label, $url, $urlOptions );
+		if( isset( $url ) ) {
+
+			$link = Html::a( $label, $url, $urlOptions );
+		}
 
 		// Custom Links
 		if( isset( $options[ 'action' ] ) ) {
@@ -145,6 +148,14 @@ class BasicNav extends Widget {
 			$urlOptions[ 'link' ] = $url;
 
 			$link = Html::tag( 'span', $label, $urlOptions );
+		}
+
+		// Custom HTML
+		if( isset( $options[ 'html' ] ) ) {
+
+			$link = $options[ 'html' ];
+
+			unset( $options[ 'html' ] );
 		}
 
         return Html::tag( 'li', $link, $options );
