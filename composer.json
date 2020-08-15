@@ -1,6 +1,6 @@
 {
 	"name": "cmsgears/widget-nav",
-	"description": "The Nav Widget for CMSGears. It provide options to generate navigational menus.",
+	"description": "The Nav Widget provide options to generate navigational menus.",
 	"homepage": "https://www.cmsgears.org",
 	"type": "package",
 	"keywords": [ "yii2", "cmsgears", "widget", "nav" ],
