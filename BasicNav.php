@@ -14,15 +14,12 @@ use Yii;
 use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 
-// CMG Imports
-use cmsgears\core\common\base\Widget;
-
 /**
  * Nav widget show the menu.
  *
  * @since 1.0.0
  */
-class BasicNav extends Widget {
+class BasicNav extends \cmsgears\core\common\base\Widget {
 
 	// Variables ---------------------------------------------------
 
@@ -137,9 +134,13 @@ class BasicNav extends Widget {
 			$options = $item[ 'options' ];
 		}
 
-		if( isset( $url ) ) {
+		if( !empty( $url ) ) {
 
 			$link = Html::a( $label, $url, $urlOptions );
+		}
+		else {
+
+			$link = Html::tag( 'span', $label, $urlOptions );
 		}
 
 		// Custom Links
